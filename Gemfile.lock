@@ -103,6 +103,8 @@ GEM
     drb (2.2.1)
     erubi (1.13.0)
     ffi (1.17.0-x86_64-linux-gnu)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     http-accept (1.7.0)
@@ -278,6 +280,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   dotenv-rails
+  figaro
   jbuilder (~> 2.7)
   listen (~> 3.3)
   psych (~> 4.0)
