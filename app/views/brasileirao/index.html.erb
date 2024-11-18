@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Posição</th>
+          <th>Escudo</th>
+          <th>Nome</th>
+          <th>P</th>
+          <th>J</th>
+          <th>V</th>
+          <th>E</th>
+          <th>D</th>
+          <th>SG</th>
+          <th>Últimas 5</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @teams.each do |team| %>
+          <tr>
+            <td><%= team[:posicao] %> </td> 
+            <td><img style="height:30px;" src="<%= team[:escudo] %>" alt="<%= team[:none] %>"> </td>
+            <td><%= team[:nome_popular] %> </td>
+            <td><%= team[:pontos] %> </td>
+            <td><%= team[:jogos] %> </td>
+            <td><%= team[:vitorias] %> </td>
+            <td><%= team[:empates] %> </td>
+            <td><%= team[:derrotas] %> </td>
+            <td><%= team[:saldo_gols] %> </td>
+            <td><%= team[:ultimos_jogos] %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </body>
+</html>

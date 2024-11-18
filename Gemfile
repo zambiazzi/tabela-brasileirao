@@ -58,3 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'psych', '~> 4.0'
 
 gem 'rest-client'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'figaro'
