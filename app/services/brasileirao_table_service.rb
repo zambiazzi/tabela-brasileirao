@@ -2,14 +2,14 @@ class BrasileiraoTableService
   require 'rest-client'
   require 'json'
 
-  TABLE_URL_DATA = 'https://api.api-futebol.com.br/v1/campeonatos/10/tabela'
+  def initialize(options = {})
+    @headers = {
+      Authorization: "Bearer #{Figaro.env.API_KEY}"
+    }
+  end
 
-  @headers = {
-    Authorization: "Bearer #{Figaro.env.API_KEY}"
-  }
-
-  def self.go 
-    res = self.request
+  def go 
+    res = request
 
     teams = []
 
@@ -38,8 +38,8 @@ class BrasileiraoTableService
 
   private 
 
-  def self.request
-    res = RestClient.get(TABLE_URL_DATA, @headers)
-    JSON.parse(res.body)
+  def request
+    res = RestClient.get('https://api.api-futebol.com.br/v1/campeonatos/10/tabela', @headers)
+    puts res
   end
 end

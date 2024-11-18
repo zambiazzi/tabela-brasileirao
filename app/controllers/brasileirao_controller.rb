@@ -3,7 +3,7 @@ class BrasileiraoController < ApplicationController
   before_action :set_brasileirao_games_service, only: [:jogos]
 
   def index
-    @table_data = @brasileirao_table_service
+    @teams = BrasileiraoTableService.new.go
   end
 
   def jogos
