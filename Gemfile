@@ -62,3 +62,5 @@ gem 'rest-client'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'figaro'
+
+gem 'bootstrap', '~> 5.3.3'

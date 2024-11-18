@@ -40,6 +40,6 @@ class BrasileiraoTableService
 
   def request
     res = RestClient.get('https://api.api-futebol.com.br/v1/campeonatos/10/tabela', @headers)
-    puts res
+    JSON.parse(res.body)
   end
 end
