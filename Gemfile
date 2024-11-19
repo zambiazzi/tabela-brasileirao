@@ -42,6 +42,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem "rails_live_reload"
 end
 
 group :test do
@@ -62,3 +64,5 @@ gem 'rest-client'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'figaro'
+
+gem 'bootstrap', '~> 5.3.3'

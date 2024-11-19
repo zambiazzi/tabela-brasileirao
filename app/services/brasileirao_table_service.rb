@@ -24,7 +24,19 @@ class BrasileiraoTableService
           empates: res['empates'],
           derrotas: res['derrotas'],
           saldo_de_gols: res['saldo_gols'],
-          ultimos_jogos: res['ultimos_jogos'],
+          ultimos_jogos: 
+            res['ultimos_jogos'].map do |match_result|
+              case match_result
+              when "v"
+                "last_5_win.svg"
+              when "e"
+                "last_5_draw.svg"
+              when "d"
+                "last_5_loss"
+              else
+                ""
+              end
+            end
        }) 
     end
 
@@ -40,6 +52,6 @@ class BrasileiraoTableService
 
   def request
     res = RestClient.get('https://api.api-futebol.com.br/v1/campeonatos/10/tabela', @headers)
-    puts res
+    JSON.parse(res.body)
   end
 end
