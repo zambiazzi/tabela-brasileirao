@@ -8,6 +8,8 @@
   font-family: "Kantumruy Pro", sans-serif;
 }
 
+// table view
+
 :root {
   --points-color: #344A9B;
 }
@@ -20,4 +22,16 @@
 
 a.nav-link.active {
   --bs-nav-link-font-weight: 800;
+}
+
+// matches view
+
+.title-card-brasileirao {
+  font-size: 12px;
+  font-weight: 800;
+  margin-left: 5px;
+}
+
+.card-match-status {
+  text-transform: capitalize;
 }
