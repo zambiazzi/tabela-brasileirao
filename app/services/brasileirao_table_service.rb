@@ -15,28 +15,28 @@ class BrasileiraoTableService
 
     res.each do |res|
       teams.push({
-          posicao: res['posicao'],
-          escudo: res['time']['escudo'],
-          nome: res['time']['nome_popular'],
-          pontos: res['pontos'],
-          jogos: res['jogos'],
-          vitorias: res['vitorias'],
-          empates: res['empates'],
-          derrotas: res['derrotas'],
-          saldo_de_gols: res['saldo_gols'],
-          ultimos_jogos: 
-            res['ultimos_jogos'].map do |match_result|
-              case match_result
-              when "v"
-                "last_5_win.svg"
-              when "e"
-                "last_5_draw.svg"
-              when "d"
-                "last_5_loss"
-              else
-                ""
-              end
+        posicao: res['posicao'],
+        escudo: res['time']['escudo'],
+        nome: res['time']['nome_popular'],
+        pontos: res['pontos'],
+        jogos: res['jogos'],
+        vitorias: res['vitorias'],
+        empates: res['empates'],
+        derrotas: res['derrotas'],
+        saldo_de_gols: res['saldo_gols'],
+        ultimos_jogos: 
+          res['ultimos_jogos'].map do |match_result|
+            case match_result
+            when "v"
+              "last_5_win.svg"
+            when "e"
+              "last_5_draw.svg"
+            when "d"
+              "last_5_loss"
+            else
+              ""
             end
+          end
        }) 
     end
 
