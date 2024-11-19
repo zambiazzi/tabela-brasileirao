@@ -4,38 +4,57 @@
   </head>
 
   <body>
-    <table>
-      <thead>
-        <tr>
-          <th>Posição</th>
-          <th>Escudo</th>
-          <th>Nome</th>
-          <th>P</th>
-          <th>J</th>
-          <th>V</th>
-          <th>E</th>
-          <th>D</th>
-          <th>SG</th>
-          <th>Últimas 5</th>
-        </tr>
-      </thead>
+    <nav class="navbar navbar-expand bg-body-tertiary fixed-top ">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">TABELA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">JOGOS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-      <tbody>
-        <% @teams.each do |team| %>
-          <tr>
-            <td><%= team[:posicao] %> </td> 
-            <td><img style="height:30px;" src="<%= team[:escudo] %>" alt="<%= team[:none] %>"> </td>
-            <td><%= team[:nome_popular] %> </td>
-            <td><%= team[:pontos] %> </td>
-            <td><%= team[:jogos] %> </td>
-            <td><%= team[:vitorias] %> </td>
-            <td><%= team[:empates] %> </td>
-            <td><%= team[:derrotas] %> </td>
-            <td><%= team[:saldo_gols] %> </td>
-            <td><%= team[:ultimos_jogos] %> </td>
+    <div class="text-center table-responsive mx-5" style="margin-top:100px;white-space:nowrap;">
+      <table class="table table-striped">
+        <thead>
+          <tr class="fs-5">
+            <th scope="col" colspan="3" style="font-style:italic;text-align:start">BRASILEIRÃO SÉRIE A</th>
+            <th scope="col">P</th>
+            <th scope="col">J</th>
+            <th scope="col">V</th>
+            <th scope="col">E</th>
+            <th scope="col">D</th>
+            <th scope="col">SG</th>
+            <th scope="col">Últimas 5</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% @teams.each do |team| %>
+            <tr class="align-middle">
+              <th scope="row" style="width:5%;"><%= team[:posicao] %> </th>
+              <td style="width:5%;"><img style="height:30px;" src="<%= team[:escudo] %>" alt="<%= team[:none] %>"></td>
+              <td style="text-align:start;"><%= team[:nome] %> </td>
+              <td class="td-points"><%= team[:pontos] %> </td>
+              <td style="width:5%;"><%= team[:jogos] %> </td>
+              <td style="width:5%;"><%= team[:vitorias] %> </td>
+              <td style="width:5%;"><%= team[:empates] %> </td>
+              <td style="width:5%;"><%= team[:derrotas] %> </td>
+              <td style="width:5%;"><%= team[:saldo_de_gols] %> </td>
+              <td style="width:15%;">
+                <% team[:ultimos_jogos].each do |match_result_image| %> 
+                  <img src="<%= asset_path(match_result_image) %>">
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+     </div>
   </body>
 </html>
