@@ -9,8 +9,6 @@ class BrasileiraoMatchesService
   end
 
   def go
-    puts "Headers: #{@headers.inspect}"
-
     res = request
 
     return {
@@ -31,7 +29,7 @@ class BrasileiraoMatchesService
   private
 
   def request
-    res = RestClient.get('https://api.api-futebol.com.br/v1/partidas/16795', @headers)
+    res = RestClient.get('https://api.api-futebol.com.br/v1/campeonatos/10/partidas/16880', @headers)
     JSON.parse(res.body)
   end
 end
