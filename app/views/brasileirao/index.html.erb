@@ -37,7 +37,7 @@
         <tbody>
           <% @teams.each do |team| %>
             <tr class="align-middle">
-              <th scope="row" style="width:5%;"><%= team['posicao'] %> </th>
+              <th scope="row" style="width:5%;"><%= team.posicao %> </th>
               <td style="width:5%;"><img style="height:30px;" src="<%= team.escudo %>"></td>
               <td style="text-align:start;"><%= team.nome %> </td>
               <td class="td-points"><%= team.pontos %> </td>
