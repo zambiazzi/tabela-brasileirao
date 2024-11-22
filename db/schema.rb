@@ -10,27 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_21_203746) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_22_122557) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "partidas", force: :cascade do |t|
+    t.string "rodada"
+    t.string "nome_mandante"
+    t.string "escudo_mandante"
+    t.integer "placar_mandante"
+    t.string "nome_visitante"
+    t.string "escudo_visitante"
+    t.integer "placar_visitante"
+    t.string "data_jogo"
+    t.string "data_realizacao"
+    t.string "estadio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tabela_classificacaos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "posicao"
-    t.string "escudo"
     t.string "nome"
+    t.string "escudo"
     t.integer "pontos"
     t.integer "jogos"
+    t.string "rails"
+    t.string "generate"
+    t.string "migration"
     t.integer "vitorias"
     t.integer "empates"
     t.integer "derrotas"
     t.integer "saldo_de_gols"
-    t.string "ultimos_jogos", default: [], array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.json "ultimos_jogos"
   end
 end
