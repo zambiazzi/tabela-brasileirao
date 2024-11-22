@@ -37,17 +37,17 @@
         <tbody>
           <% @teams.each do |team| %>
             <tr class="align-middle">
-              <th scope="row" style="width:5%;"><%= team[:posicao] %> </th>
-              <td style="width:5%;"><img style="height:30px;" src="<%= team[:escudo] %>" alt="<%= team[:none] %>"></td>
-              <td style="text-align:start;"><%= team[:nome] %> </td>
-              <td class="td-points"><%= team[:pontos] %> </td>
-              <td style="width:5%;"><%= team[:jogos] %> </td>
-              <td style="width:5%;"><%= team[:vitorias] %> </td>
-              <td style="width:5%;"><%= team[:empates] %> </td>
-              <td style="width:5%;"><%= team[:derrotas] %> </td>
-              <td style="width:5%;"><%= team[:saldo_de_gols] %> </td>
+              <th scope="row" style="width:5%;"><%= team.posicao %> </th>
+              <td style="width:5%;"><img style="height:30px;" src="<%= team.escudo %>"></td>
+              <td style="text-align:start;"><%= team.nome %> </td>
+              <td class="td-points"><%= team.pontos %> </td>
+              <td style="width:5%;"><%= team.jogos %> </td>
+              <td style="width:5%;"><%= team.vitorias %> </td>
+              <td style="width:5%;"><%= team.empates %> </td>
+              <td style="width:5%;"><%= team.derrotas %> </td>
+              <td style="width:5%;"><%= team.saldo_de_gols %> </td>
               <td style="width:15%;">
-                <% team[:ultimos_jogos].each do |match_result_image| %> 
+                <% team.ultimos_jogos.each do |match_result_image| %> 
                   <img src="<%= asset_path(match_result_image) %>">
                 <% end %>
               </td>

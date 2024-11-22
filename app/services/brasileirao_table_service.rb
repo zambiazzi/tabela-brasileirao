@@ -8,36 +8,40 @@ class BrasileiraoTableService
     }
   end
 
-  def go 
+  def go
+    if TabelaClassificacao.exists? && TabelaClassificacao.maximum(:updated_at) > 1.hour.ago 
+      return TabelaClassificacao.all
+    end
+
     res = request
 
     teams = []
 
-    res.each do |res|
-      teams.push({
-        posicao: res['posicao'],
-        escudo: res['time']['escudo'],
-        nome: res['time']['nome_popular'],
-        pontos: res['pontos'],
-        jogos: res['jogos'],
-        vitorias: res['vitorias'],
-        empates: res['empates'],
-        derrotas: res['derrotas'],
-        saldo_de_gols: res['saldo_gols'],
-        ultimos_jogos: 
-          res['ultimos_jogos'].map do |match_result|
-            case match_result
-            when "v"
-              "last_5_win.svg"
-            when "e"
-              "last_5_draw.svg"
-            when "d"
-              "last_5_loss"
-            else
-              ""
-            end
-          end
-       }) 
+    res.each do |team_data|
+      team_attributes = {
+        posicao: team_data['posicao'],
+        escudo: team_data['time']['escudo'],
+        nome: team_data['time']['nome_popular'],
+        pontos: team_data['pontos'],
+        jogos: team_data['jogos'],
+        vitorias: team_data['vitorias'],
+        empates: team_data['empates'],
+        derrotas: team_data['derrotas'],
+        saldo_de_gols: team_data['saldo_gols'],
+        ultimos_jogos: team_data['ultimos_jogos'].map do |match_result|
+                                  case match_result
+                                  when "v" then "last_5_win.svg"
+                                  when "e" then "last_5_draw.svg"
+                                  when "d" then "last_5_loss"
+                                  else ""
+                                  end
+                                end
+       }
+
+      team = TabelaClassificacao.find_or_initialize_by(nome: team_attributes[:nome])
+      team.update!(team_attributes)
+
+      teams << team
     end
 
     return teams if teams.present?

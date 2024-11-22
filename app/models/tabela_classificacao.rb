@@ -1,0 +1,2 @@
+class TabelaClassificacao < ApplicationRecord
+end
