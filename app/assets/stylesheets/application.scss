@@ -35,3 +35,10 @@ a.nav-link.active {
 .card-match-status {
   text-transform: capitalize;
 }
+
+// dark mode switch
+
+.form-check-input:focus {
+  outline: none;
+  box-shadow: none;
+}
