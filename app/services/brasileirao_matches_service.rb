@@ -10,8 +10,10 @@ class BrasileiraoMatchesService
   end
 
   def go(start_id, end_id)
+
     if Partida.exists? && Partida.maximum(:updated_at) > 1.hour.ago
-      return Partida.all
+      
+      return Partida.where(id_partida: start_id..end_id).order(:data_jogo)
     end
 
     matches = []
