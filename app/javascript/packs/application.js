@@ -11,3 +11,22 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('DOMContentLoaded', () => {
+  const inputCheck = document.querySelector('#dark-mode');
+  const body = document.querySelector('body');
+
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  body.setAttribute('data-bs-theme', savedTheme);
+
+  if (inputCheck) {
+    inputCheck.checked = savedTheme === 'dark';
+
+    inputCheck.addEventListener('change', () => {
+      const mode = inputCheck.checked ? 'dark' : 'light';
+      body.setAttribute('data-bs-theme', mode);
+
+      localStorage.setItem('theme', mode);
+    });
+  }
+});
