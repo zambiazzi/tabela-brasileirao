@@ -2,8 +2,8 @@
 
 This is a project developed in **Ruby on Rails** using **PostgreSQL** as the database and **Bootstrap** for styling, consuming the [API Futebol](https://dashboard.api-futebol.com.br/).
 
-![project picture](./app/assets/images/table_image.png)
-![project picture](./app/assets/images/matches_image.png)
+![project picture](../assets/images/table_image.png)
+![project picture](../assets/images/matches_image.png)
 
 ---
 
