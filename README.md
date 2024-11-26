@@ -1,4 +1,4 @@
 # Bem-vindo/Welcome
 
-- 🇺🇸 [English](./docs/EN-README.md)
-- 🇧🇷 [Português](./docs/PTBR-README.md)
+- 🇺🇸 [English](./docs/EN-README.MD)
+- 🇧🇷 [Português](./docs/PTBR-README.MD)
