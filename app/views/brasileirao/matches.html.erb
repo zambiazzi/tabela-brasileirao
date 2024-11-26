@@ -4,7 +4,7 @@
   <head>
   </head>
 
-  <body>
+  <body data-bs-theme="<%= @theme %>">
     <nav class="navbar navbar-expand bg-body-tertiary fixed-top ">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,6 +16,9 @@
               <a class="nav-link active" aria-current="page" href="#">JOGOS</a>
             </li>
           </ul>
+          <div class="nav-item d-flex align-items-center justify-content-center ms-auto gap-2">
+            <%= render 'shared/dark_mode_switch' %>
+          </div>
         </div>
       </div>
     </nav>
@@ -49,7 +52,7 @@
                       <span class="text-center"><%= match.nome_visitante %></span>
                     </div>
                   </div>
-                  <div class="d-flex flex-column flex-md-row justify-content-between text-center mt-3" style="color:rgba(3, 3, 3, 0.5);">
+                  <div class="d-flex flex-column flex-md-row justify-content-between text-center mt-3">
                     <span><%= match.estadio %></span>
                     <span><%= match.rodada %></span>
                   </div>
@@ -88,7 +91,7 @@
                       <span class="text-center"><%= match.nome_visitante %></span>
                     </div>
                   </div>
-                  <div class="d-flex flex-column flex-md-row justify-content-between text-center mt-3" style="color:rgba(3, 3, 3, 0.5);">
+                  <div class="d-flex flex-column flex-md-row justify-content-between text-center mt-3">
                     <span><%= match.estadio %></span>
                     <span><%= Date.strptime(match.data_jogo, "%d/%m/%Y").strftime("%d/%m") %></span>
                   </div>

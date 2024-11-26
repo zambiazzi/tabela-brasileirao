@@ -28,11 +28,13 @@ module.exports = function(api) {
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
         {
-          forceAllTransforms: true,
           useBuiltIns: 'entry',
           corejs: 3,
           modules: false,
-          exclude: ['transform-typeof-symbol']
+          exclude: [
+            'transform-typeof-symbol',
+            'proposal-private-property-in-object'
+          ]
         }
       ]
     ].filter(Boolean),
@@ -60,15 +62,11 @@ module.exports = function(api) {
         }
       ],
       [
-        '@babel/plugin-proposal-private-property-in-object',
-        {
-          loose: true
-        }
-      ],
-      [
         '@babel/plugin-transform-runtime',
         {
-          helpers: false
+          helpers: true,
+          regenerator: true,
+          corejs: false
         }
       ],
       [

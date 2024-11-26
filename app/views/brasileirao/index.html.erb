@@ -3,7 +3,7 @@
   <head>
   </head>
 
-  <body>
+  <body data-bs-theme="<%= @theme %>">
     <nav class="navbar navbar-expand bg-body-tertiary fixed-top ">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -15,6 +15,9 @@
               <%= link_to 'JOGOS', jogos_path, class: "nav-link"%>
             </li>
           </ul>
+          <div class="nav-item d-flex align-items-center justify-content-center ms-auto gap-2">
+            <%= render 'shared/dark_mode_switch' %>
+          </div>
         </div>
       </div>
     </nav>

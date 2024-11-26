@@ -9,8 +9,8 @@ class BrasileiraoTableService
   end
 
   def go
-    if TabelaClassificacao.exists? && TabelaClassificacao.maximum(:updated_at) > 1.hour.ago 
-      return TabelaClassificacao.all
+    if TabelaClassificacao.exists? && TabelaClassificacao.maximum(:updated_at) >= 1.hour.ago
+      return TabelaClassificacao.order(:posicao)
     end
 
     res = request
@@ -29,27 +29,24 @@ class BrasileiraoTableService
         derrotas: team_data['derrotas'],
         saldo_de_gols: team_data['saldo_gols'],
         ultimos_jogos: team_data['ultimos_jogos'].map do |match_result|
-                                  case match_result
-                                  when "v" then "last_5_win.svg"
-                                  when "e" then "last_5_draw.svg"
-                                  when "d" then "last_5_loss"
-                                  else ""
-                                  end
-                                end
+                          case match_result
+                          when "v" then "last_5_win.svg"
+                          when "e" then "last_5_draw.svg"
+                          when "d" then "last_5_loss"
+                          else ""
+                          end
+                        end
        }
 
       team = TabelaClassificacao.find_or_initialize_by(nome: team_attributes[:nome])
       team.update!(team_attributes)
-
+      
       teams << team
     end
 
     return teams if teams.present?
 
     raise "Time não encontrado." unless res.present?
-
-  rescue Exception => e
-    raise e.message
   end
 
   private 
