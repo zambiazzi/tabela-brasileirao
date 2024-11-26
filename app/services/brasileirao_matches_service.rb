@@ -11,7 +11,7 @@ class BrasileiraoMatchesService
 
   def go(start_id, end_id)
 
-    if Partida.exists? && Partida.maximum(:updated_at) >= 1.hour.ago
+    if Partida.exists? && Partida.maximum(:updated_at) >= 5.hour.ago
       return Partida.where(id_partida: start_id..end_id).order(:data_jogo)
     end
 
@@ -52,9 +52,9 @@ class BrasileiraoMatchesService
       nome_visitante: match_data['time_visitante']['nome_popular'],
       escudo_visitante: match_data['time_visitante']['escudo'],
       placar_visitante: match_data['placar_visitante'],
-      data_jogo: match_data['data_realizacao'],
-      hora_jogo: match_data['hora_realizacao'],
-      estadio: match_data['estadio']&.dig('nome')
+      data_jogo: match_data['data_realizacao']&.presence,
+      hora_jogo: match_data['hora_realizacao']&.presence,
+      estadio: match_data['estadio']&.dig('nome_popular')
     )
     
     partida

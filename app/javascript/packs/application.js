@@ -13,7 +13,8 @@ Turbolinks.start()
 ActiveStorage.start()
 
 document.addEventListener('DOMContentLoaded', () => {
-  const inputCheck = document.querySelector('#dark-mode');
+
+  const inputCheck = document.querySelector('#dark-mode-switch');
   const body = document.querySelector('body');
 
   const savedTheme = localStorage.getItem('theme') || 'light';
@@ -30,3 +31,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+

@@ -4,7 +4,7 @@
   <head>
   </head>
 
-  <body data-bs-theme="<%= cookies[:theme] || 'light' %>">
+  <body data-bs-theme="<%= @theme %>">
     <nav class="navbar navbar-expand bg-body-tertiary fixed-top ">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -17,12 +17,7 @@
             </li>
           </ul>
           <div class="nav-item d-flex align-items-center justify-content-center ms-auto gap-2">
-            <img style="height:15px;" src="<%= asset_path("sun_enable.png") %>">
-            <div class="form-check form-switch d-flex align-items-center justify-content-center">
-              <input class="form-check-input" type="checkbox" role="switch" id="dark-mode">
-              <label class="form-check-label" for="dark-mode"></label>
-            </div>
-            <img style="height:15px;" src="<%= asset_path("moon_disable.png") %>">
+            <%= render 'shared/dark_mode_switch' %>
           </div>
         </div>
       </div>

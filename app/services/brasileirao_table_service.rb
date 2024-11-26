@@ -39,19 +39,14 @@ class BrasileiraoTableService
        }
 
       team = TabelaClassificacao.find_or_initialize_by(nome: team_attributes[:nome])
-      team.assign_attributes(team_attributes)
-      team.touch
-      team.save!
-
+      team.update!(team_attributes)
+      
       teams << team
     end
 
     return teams if teams.present?
 
     raise "Time não encontrado." unless res.present?
-
-  rescue Exception => e
-    raise e.message
   end
 
   private 
