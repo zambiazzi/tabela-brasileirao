@@ -23,19 +23,19 @@ Before starting, make sure you have the following installed on your machine:
 1. **Clone the repository**:
    ```
    git clone https://github.com/zambiazzi/tabela-brasileirao.git
-   cd project-name
+   cd tabela-brasileirao
     ```
    
 2. **Install dependencies:**  
 
-   `Bundle install`
+   `bundle install`
 
 3. **Set up the database:**
 
     `rails db:create db:migrate`
     
 4. **Environment variable configuration: Add your API Key in the config/application.yml file:**
-    
+    Create a file named application.yml, and add the following key inside it:
     `API_KEY: "your-key-here"`
 
 ## **Running the Project**
