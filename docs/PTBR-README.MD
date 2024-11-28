@@ -23,19 +23,19 @@ Antes de começar, você precisa ter instalado em sua máquina:
 1. **Clone o repositório**:
    ```
    git clone https://github.com/zambiazzi/tabela-brasileirao.git
-   cd nome-do-projeto
+   cd tabela-brasileirao
     ```
    
 2. **Instale as dependências:**  
 
-   `Bundle install`
+   `bundle install`
 
 3. **Configure o banco de dados:**
 
     `rails db:create db:migrate`
     
 4. **Configuração de variáveis de ambiente**
-    
+    Crie na pasta config o arquivo application.yml e insira a key:  
     `API_KEY: "sua-chave-aqui"`
 
 ## **Rodando o Projeto**
